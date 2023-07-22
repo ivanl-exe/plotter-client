@@ -1,0 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600&display=swap');
+
+body, button {
+    font-family: 'Space Grotesk', sans-serif;
+    text-align: center;
+}
