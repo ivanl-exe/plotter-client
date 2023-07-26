@@ -1,3 +1,3 @@
-# Plotter client
+# Plotter Client
 
 Placeholder

@@ -1,6 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600&display=swap');
 
+body {
+    width: min(90vw, 700px);
+    margin: auto;
+}
+
 body, button {
     font-family: 'Space Grotesk', sans-serif;
     text-align: center;
+}
+
+input[type=range] {
+    user-drag: none;
+    user-select: none;
 }

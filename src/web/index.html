@@ -12,7 +12,30 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/style.css">
         <script src="modules/jquery-3.7.0.min.js"></script>
+        <script type="text/javascript" src="/eel.js"></script>
+        <script src="js/canvas.js"></script>
+        <script src="js/edit.js"></script>
     </head>
     <body>
+        <h1>Plotter Client</h1>
+        <button id="img-input-button">Choose image</button>
+        <canvas id="input-img-canvas"></canvas>
+        <div id="edit">
+            <div id="threshold">
+                <h3>threshold</h3>
+                <input type="number">
+                <input type="range">    
+                <button>reset</button>
+            </div>
+            <div id="exponential-multiplier">
+                <h3>e<sup>x</sup>ponential multiplier</h3>
+                <input type="number">
+                <input type="range">
+                <button>reset</button>    
+            </div>
+        </div>
+        <canvas id="output-img-canvas"></canvas>
+        <code id="output-command-code"></code>
+        <button id="img-output-button">Save commands</button>
     </body>
 </html>
