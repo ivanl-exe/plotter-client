@@ -2,20 +2,48 @@ $(document).ready(() => {
     console.log(`v${$().jquery}`)
 
     $("#img-input-button").on("click", () => {
-        eel.loadImage()((image) => {
-            uploadImage(image, $("#input-img-canvas").get(0))
-            $("#edit").children("div").children("input, button").prop("disabled", false);
+        eel.loadImage()((inputImage) => {
+            updateInputCanvas(inputImage);
+            eel.getImage()((outputImage) => {
+                updateOutputCanvas(outputImage);
+                $("#edit").children("div").children("input, button").prop("disabled", false);
+            });
         });
     });
 });
+
+const updateInputCanvas = (image) => {
+    const canvas = $("#input-img-canvas");
+    uploadImage(image, canvas);
+}
+
+const updateOutputCanvas = (image) => {
+    const canvas = $("#output-img-canvas");
+    uploadImage(image, canvas);
+}
 
 const uploadImage = ([data, format], canvas) => {
     const image = new Image();
     image.src = `data:image/${format.toLowerCase()};base64,${data}`
     image.onload = () => {
         createImageBitmap(image).then((bitmap) => {
-            canvas.width = bitmap.width;
-            canvas.height = bitmap.height;
+            const item = canvas.parent();
+            const innerWidth = item.innerWidth();
+            const innerHeight = item.innerHeight();
+            const aspect_ratio = bitmap.width / bitmap.height;
+            let width = 0;
+            let height = 0;
+            if(aspect_ratio >= 1) {
+                width = innerWidth;
+                height = width / aspect_ratio;
+            }
+            else {
+                height = innerHeight;
+                width = height * aspect_ratio;
+            }
+            canvas = canvas.get(0);
+            canvas.width = width;
+            canvas.height = height;
             canvas.getContext("bitmaprenderer").transferFromImageBitmap(bitmap);
         });
     };

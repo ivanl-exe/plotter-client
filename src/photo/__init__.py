@@ -15,7 +15,7 @@ class Photo:
             self.photo.load()
         self.photo.load()
     
-    def apply(self, key, value) -> None:
+    def edit(self, key, value) -> None:
         filter = eval(key.replace('-', '_'))
         self.photo = filter(self.photo, value)
 

@@ -17,25 +17,52 @@
         <script src="js/edit.js"></script>
     </head>
     <body>
-        <h1>Plotter Client</h1>
-        <button id="img-input-button">Choose image</button>
-        <canvas id="input-img-canvas"></canvas>
-        <div id="edit">
-            <div id="threshold">
-                <h3>threshold</h3>
-                <input type="number">
-                <input type="range">    
-                <button>reset</button>
+        <div class="input-container">
+            <div class="item" id="title-container">
+                <h1>Plotter Client</h1>
             </div>
-            <div id="exponential-multiplier">
-                <h3>e<sup>x</sup>ponential multiplier</h3>
-                <input type="number">
-                <input type="range">
-                <button>reset</button>    
+            <div class="item">
+                <button id="img-input-button">Choose image</button>
+            </div>
+            <div class="item">
+                <canvas id="input-img-canvas"></canvas>
+            </div>
+            <div class="item" id="edit-container">
+                <h3>Edit</h3>
+                <div id="edit">
+                    <div id="threshold">
+                        <h3>threshold</h3>
+                        <div class="layer">
+                            <p1>order:</p1>
+                            <input type="number" disabled="true">
+                        </div>
+                        <input type="number">
+                        <input type="range">
+                        <button>reset</button>
+                    </div>
+                    <div id="exponential-multiplier">
+                        <h3>e<sup>x</sup>ponential multiplier</h3>
+                        <div class="layer">
+                            <p1>order:</p1>
+                            <input type="number">
+                        </div>
+                        <input type="number">
+                        <input type="range">
+                        <button>reset</button>    
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <button id="img-output-button">Save commands</button>
+            </div>
+            <div class="item">
+                <canvas id="output-img-canvas"></canvas>                
+            </div>
+            <div class="item" id="output-command-code-container">
+                <h3>Command code</h3>
+                <div id="output-command-code"></div>
             </div>
         </div>
-        <canvas id="output-img-canvas"></canvas>
-        <code id="output-command-code"></code>
-        <button id="img-output-button">Save commands</button>
+
     </body>
 </html>

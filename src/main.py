@@ -15,14 +15,19 @@ def loadImage() -> tuple[str, str]:
         multiple = False
     )
     if path == '': return path
+    
     global client
     client = Client(path)
     return (client.photo.export(FORMAT), FORMAT)
 
 @eel.expose
 def editProperties(property: dict) -> None:
-    print(property)
     client.declare(property)
+
+@eel.expose
+def editOrder(property: dict) -> None:
+    for key, value in property.items():
+        client.order(key, value)
 
 @eel.expose
 def getImage() -> Image:
