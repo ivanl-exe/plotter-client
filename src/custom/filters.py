@@ -7,7 +7,7 @@ HIGH = 255
 
 def __threshold__(n: int, value: float) -> int:
     threshold = floor(value / RANGE * HIGH)
-    if n > threshold: return HIGH
+    if n >= threshold: return HIGH
     return 0
 
 def threshold(image: Image, value: float) -> Image:
@@ -23,4 +23,10 @@ def __exponential_multiplier__(n: int, value: float) -> int:
 
 def exponential_multiplier(image: Image, value: float) -> Image:
     image = Image.eval(image, lambda n: __exponential_multiplier__(n, value))
+    return image
+
+def __sieve__() -> int:
+    pass
+
+def sieve(image: Image, value: float) -> Image:
     return image
